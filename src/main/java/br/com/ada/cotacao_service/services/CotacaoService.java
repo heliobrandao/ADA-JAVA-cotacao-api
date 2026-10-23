@@ -32,10 +32,11 @@ public class CotacaoService {
                 awesomeApiClient.buscarCotacao(moedaNormalizada);
 
         BigDecimal cotacao =
-                new BigDecimal(cotacaoApi.ask());
+                new BigDecimal(cotacaoApi.bid());
 
         BigDecimal valorConvertido =
-                valor.divide(cotacao, 2, RoundingMode.HALF_UP);
+                valor.multiply(cotacao)
+                        .setScale(2, RoundingMode.HALF_UP);
 
         return new CotacaoResponse(
                 moedaNormalizada,

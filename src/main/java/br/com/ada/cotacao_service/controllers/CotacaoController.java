@@ -16,6 +16,7 @@ public class CotacaoController {
     private final CotacaoService cotacaoService;
 
     public CotacaoController(CotacaoService cotacaoService) {
+
         this.cotacaoService = cotacaoService;
     }
 
